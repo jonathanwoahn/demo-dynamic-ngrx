@@ -1,27 +1,25 @@
-# DemoDynamicNgrx
+# About this project
+This is a quick application to demonstrate how the dynamic ngrx library can be used.
+A few things to note about this application. It is using the entire NGRX library.
+Effects, actions, selectors, reducers, entities, store, logger, you name it. The thing to note
+is how _little_ code there is to get it all working. The biggest pain I've had with NGRX
+has been the incredible amount of boilerplate you ahve to write to get it working.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Well, this application shows how little code it can be done in. Currently, it only works
+with local storage and in memory data, but the next release will demonstrate how to connect
+it up with an API. The goal again will be to keep the boilerplate to as little as possible.
 
-## Development server
+The two places to look in this project are `app.module.ts` and `app.component.ts`. These two
+files show where the Dynamic NGRX library are functional. In `app.module.ts`, the entities are
+defined. To start with, you just have to pass in a collection of entities, that's all! The
+Dynamic NGRX library takes care of the rest. Then, when you want to access your data,
+you call the `DynamicFacadeService`. Pass in the interface for your entity, and the entity name
+as you defined it in the module import.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The `DynamicFacadeService` will return a facade through which all your key methods can be accessed.
+You have access to all the basic NGRX Entity methods, and there's an `action` method via which
+all the basic NGRX Entity Adapter methods are available (i.e. `addOne`, `removeMany`, etc.);
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Quickstart
+- `npm i`
+- `ng serve`
